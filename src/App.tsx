@@ -9,6 +9,10 @@ const initialState = {
   loading: false
 }
 
+function reducer(state, action) {
+  
+}
+
 function App() {
   return (
     <>
