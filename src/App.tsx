@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useReducer } from 'react'
 import './App.css'
 
+//1- Crear un inicial state
 const initialState = {
   fromLanguage: 'auto',
   toLanguage: 'en',
@@ -9,14 +11,57 @@ const initialState = {
   loading: false
 }
 
+//2- Crear un reducer
 function reducer(state, action) {
-  
+  const { type, payload } = action
+
+  if (type === 'INTERCHANGE_LANGUAGES') {
+    return {
+      ...state,
+      fromLanguage: state.toLanguage,
+      toLanguage: state.fromLanguage
+    }
+  }
+
+  if (type === 'SET_FROM_LANGUAGE') {
+    return {
+      ...state,
+      fromLanguage: payload
+    }
+  }
+
+  if (type === 'SET_TO_LANGUAGE') {
+    return {
+      ...state,
+      toLanguage: payload
+    }
+  }
+  if (type === 'SET_FROM_TEXT') {
+    return {
+      ...state,
+      loading: true,
+      fromText: payload,
+      result: ''
+    }
+  }
+  if (type === 'SET_RESULT') {
+    return {
+      ...state,
+      loading: false,
+      result: payload
+    }
+  }
+
+  return state
 }
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <>
-<h1>Google Translate</h1>
+    <div className="App">
+      <h1>Google Translate</h1>
+    </div>
     </>
   )
 }
