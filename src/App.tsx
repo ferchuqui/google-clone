@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import './App.css'
-import type {  Action, State } from './types.d.ts'
+import type {   Action,  State } from './types.d.ts'
 
 //1- Crear un inicial state
 const initialState : State = {
@@ -13,8 +13,8 @@ const initialState : State = {
 }
 
 //2- Crear un reducer
-function reducer(state: State , action: Action) {
-  const { type, payload } = action
+function reducer (state: State , action: Action) {
+  const { type } = action
 
   if (type === 'INTERCHANGE_LANGUAGES') {
     return {
@@ -58,8 +58,7 @@ function reducer(state: State , action: Action) {
 
 function App() {
   const [{ 
-    fromLanguage, 
-    
+    fromLanguage 
   }, dispatch] = useReducer(reducer, initialState)
 
   /* console.log('fromLanguage', fromLanguage) */

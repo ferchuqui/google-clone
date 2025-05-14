@@ -1,4 +1,4 @@
-export interface State = {
+export interface State  {
     fromLanguage: string
     toLanguage: string
     fromText: string
