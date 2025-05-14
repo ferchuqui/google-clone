@@ -1,3 +1,11 @@
+import type { SUPPORTED_LANGUAGES } from "./constants"
+import { AUTO_LANGUAGE } from './constants';
+
+
+export type Language = keyof typeof SUPPORTED_LANGUAGES
+export type AUTO_LANGUAGE = typeof AUTO_LANGUAGE
+export type FromLanguage = Language | AutoLanguage
+
 export interface State  {
     fromLanguage: string
     toLanguage: string
