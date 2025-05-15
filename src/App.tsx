@@ -26,7 +26,11 @@ const { fromLanguage, toLanguage,interchangeLanguages, setFromLanguage, setToLan
         </Col>
 
         <Col>
-          <LanguageSelector onChange={setToLanguage}/>
+          <LanguageSelector
+             type='to'
+             value={toLanguage}
+            onChange={setToLanguage}
+             />
           {toLanguage}
         </Col>
       </Row>

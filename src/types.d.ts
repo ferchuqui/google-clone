@@ -7,8 +7,8 @@ export type AUTO_LANGUAGE = typeof AUTO_LANGUAGE
 export type FromLanguage = Language | AutoLanguage
 
 export interface State  {
-    fromLanguage: string
-    toLanguage: string
+    fromLanguage: fromLanguage
+    toLanguage: Language
     fromText: string
     result: string
     loading: boolean
