@@ -1,3 +1,4 @@
+import { AUTO_LANGUAGE } from '../constants.ts';
 import type { Action,  Language,  State } from '../types.d.ts'
 import { useReducer } from "react";
 //1- Crear un inicial state
@@ -12,8 +13,9 @@ const initialState : State = {
 //2- Crear un reducer
 function reducer (state: State , action: Action) {
   const { type } = action
-
+//Evita que auto pase al to
   if (type === 'INTERCHANGE_LANGUAGES') {
+    if (state.fromLanguage === AUTO_LANGUAGE) return state
     return {
       ...state,
       fromLanguage: state.toLanguage,
